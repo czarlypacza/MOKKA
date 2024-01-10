@@ -73,3 +73,57 @@ flex-shrink: 0;
     top: -9999px !important;
     left: -9999px !important;
 }
+
+.nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(red, .75);
+  }
+
+  .nav-toggle-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transform: translateY(-1.2rem);
+  }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background: black;
+    height: 2px;
+    width: 1.375rem; 
+    border-radius: 2px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+  
+  .nav-toggle-label span::before {
+    bottom: 7px;
+  }
+  
+  .nav-toggle-label span::after {
+    top: 7px;
+  }
+
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+  }
+  
+  .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+
+.nav-toggle:checked ~ .navbar-logo > div{
+    transform: scale(1,1);
+    transition: ease-in-out 250ms;
+}
+
+
+
