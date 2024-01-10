@@ -1,61 +1,75 @@
-:root{
+:root {
     --ff-primary: 'Montserrat', sans-serif;
-    --ff-accent:'DM Mono';
+    --ff-accent: 'DM Mono';
 
     --color-primary: #C4D6B0
 }
 
-*,*::after,*::before{
+*,
+*::after,
+*::before {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-.nav-container{
+.nav-container {
     font-family: var(--ff-primary);
 }
 
-.nav-top{
+.nav-top {
     display: flex;
+    width: 22.5rem;
+    height: 3.3125rem;
+    padding: 0rem 1.125rem;
     justify-content: space-between;
-    align-items: center;    
-    height:53px;
-    border-width: 2px;
-    border-color:black;
+    align-items: center;
+    flex-shrink: 0;
     background-color: var(--color-primary);
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
-    margin-left: 18px;
 }
 
 .logo-logoMark {
-    display: block;
-    height: 24px;
-    width:auto;
-    margin-right: 0;
+    width: 7.1875rem;
+    height: 1.5rem;
+    flex-shrink: 0;
 }
 
-.buttons{
-    margin-right: 18px;
-    height: 31px;
-    align-items: center;
+.buttons {
     display: flex;
-    gap: 11px;
+    width: 9.5625rem;
+    height: 1.9375rem;
+    flex-shrink: 0;
+    gap: 0.69rem;
 }
 
-.button{
-    height: 30px;
-    width: 30px;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
+.button {
+    width: 1.875rem;
+    height: 1.875rem;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.nav-icon{
+    width: 1.875rem;
+height: 1.875rem;
+flex-shrink: 0; 
+}
+
+.hamburger{
+    position: relative;
+    transform: translateY(-1.7rem);
+   
+    flex-shrink: 0; 
 }
 
 .nav-toggle {
     position: absolute !important;
     top: -9999px !important;
     left: -9999px !important;
-  }
+}

@@ -21,15 +21,24 @@
         <div class="nav-top">
 
             <a class="logo" href="index.html" aria-label="Visit the homepage">
-                <img src="img/Logo-removebg-preview.png" alt="logo" class="logo-logoMark">
+                <img src="img/Logo.svg" alt="logo" class="logo-logoMark">
             </a>
 
+            <script>
+                function myFunction() {
+                   console.log("clicked");
+                }
+            </script>
 
             <div class="buttons">
-                <button class="button">aaa</button>
-                <button class="button">aaa</button>
-                <button class="button">aaa</button>
-                <button class="button">aaa</button>
+                <button class="button" onclick="myFunction()"> <img src="img/Search.svg" alt="search" class="nav-icon">
+                </button>
+                <button class="button" onclick="myFunction()"> <img src="img/Koszyk.svg" alt="koszyk" class="nav-icon">
+                </button>
+                <button class="button" onclick="myFunction()"> <img src="img/Konto.svg" alt="konto" class="nav-icon">
+                </button>
+                <button class="button" onclick="myFunction()"> <img src="img/Tlo.svg" alt="menu" class="nav-icon"><img src="img/Hamburger.svg" alt="" class="hamburger">
+                </button>
             </div>
         </div>
 
