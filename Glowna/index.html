@@ -27,6 +27,7 @@
                 function myFunction() {
                    console.log("clicked");
                 }
+               
             </script>
 
             <div class="buttons">
@@ -46,16 +47,31 @@
         </div>
 
         <nav>
+            <div class="nav-title"><p>Kategorie</p> <img src="img/Close_square.svg" id="close-nav"alt="close"></div>
             <ul>
-                <li><a href="what_we_do.html">Herbata</a></li>
-                <li><a href="who_we_are.html">Yerba</a></li>
-
-                <li class="donate-button"><a href="#">Kawa</a></li>
+                <li><a href="#">Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
+                <li><a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
+                <li><a href="#">Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
+                <li><a href="#">Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Forum</a></li>
             </ul>
         </nav>
         
     </header>
 
+    <main class="body">
+        <p>aaaaaaaaaaaaaaaaa</p>
+        
+    </main>
+
+
+    <script>
+        document.querySelector('#close-nav').addEventListener('click', function() {
+            document.querySelector('.nav-toggle').click();
+        });
+    </script>
 </body>
 
 </html>
