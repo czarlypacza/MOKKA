@@ -32,7 +32,7 @@
             </script>
 
             <div class="buttons">
-                <button class="button" onclick="myFunction()"> 
+                <button class="button" onclick="myFunction()">
                     <label for="search-toggle" class="search-toggle-label">
                         <img src="img/Search.svg" alt="search" class="nav-icon">
                     </label>
@@ -52,22 +52,25 @@
 
         <nav>
             <div class="nav-title">
-                <p>Kategorie</p> <img src="img/Close_square.svg" id="close-nav" alt="close">
+                <p>Kategorie</p> <img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">
             </div>
-            <ul>
-                <li><a href="#">Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
-                <li><a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
-                <li><a href="#">Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
-                <li><a href="#">Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Forum</a></li>
-            </ul>
+            <div class="nav-wrapper">
+                <ul>
+                    <li class="nav-option-more"><a href="#" >Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#" >Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#" >Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#" >Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">O nas</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
         </nav>
 
         <div class="search-bar">
             <div class="search-field">
-                <button class="search-button"> <img src="img/Search-icon.svg" alt="search" class="search-image" ></button>
+                <button class="search-button"> <img src="img/Search-icon.svg" alt="search"
+                        class="search-image"></button>
                 <span></span>
                 <input type="text" placeholder="Wyszukaj">
             </div>
@@ -119,6 +122,87 @@
             }
         });
 
+        const categories = {
+            'Herbata': ['Czarna', 'Biala', 'Zielona', 'Czerwona', 'Oolong', 'Żółta', 'Owocowa'],
+            'Yerba': ['Argentyńska', 'Urugwajska', 'Paragwajska','Brazylijska','Owocowa'],
+            'Kawa': ['Ziarnista', 'Mielona', 'Rozpuszczalna','Wszystko'],
+            'Akcesoria': ['Herbata', 'Yerba', 'Kawa'],
+        };
+
+        const extra_categories = [
+            'Blog',
+            'O nas',
+            'Forum',
+        ];
+
+        const navItems = document.querySelectorAll('nav ul li.nav-option-more');
+        const nav = document.querySelector('nav');
+        const ul = document.querySelector('nav ul');
+
+        function nav_function() {
+                const category = this.textContent;
+                const subcategories = categories[category];
+                const ul = this.parentElement;
+                ul.innerHTML = '';
+                subcategories.forEach(subcategory => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
+                    ul.appendChild(li);
+                });
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(0)';
+                }, 100);
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(-100%)';
+                }, 50);
+                setTimeout(() => {
+                    nav.style.transform = '';
+                }, 200);
+
+                document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
+                document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
+                document.querySelector('#close-nav').addEventListener('click', function () {
+                    nav.style.transform = '';
+                    ul.innerHTML = '';
+                    Object.keys(categories).forEach(category => {
+                        const li = document.createElement('li');
+                        li.classList.add('nav-option-more');
+                        li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+                        li.addEventListener('click', nav_function);
+                        ul.appendChild(li);
+                    });
+                    extra_categories.forEach(category => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="#">${category}</a>`;
+                        ul.appendChild(li);
+                    });
+                    document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
+                    document.querySelector('#close-nav').addEventListener('click', function () {
+                        document.querySelector('.nav-toggle').click();
+                    });
+                });
+            }
+
+            navItems.forEach(item => {
+                item.addEventListener('click', nav_function);
+            });
+
+            // const back = document.querySelector('#close-nav');
+            // back.addEventListener('click', function () {
+            //     ul.innerHTML = '';
+            //     Object.keys(categories).forEach(category => {
+            //         const li = document.createElement('li');
+            //         li.classList.add('nav-option-more');
+            //         li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+            //         li.addEventListener('click', nav_function);
+            //         ul.appendChild(li);
+            //     });
+            //     extra_categories.forEach(category => {
+            //         const li = document.createElement('li');
+            //         li.innerHTML = `<a href="#">${category}</a>`;
+            //         ul.appendChild(li);
+            //     });
+            // });
 
 
 
