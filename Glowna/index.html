@@ -17,6 +17,7 @@
 
     <header class="nav-container">
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="search-toggle" class="search-toggle">
 
         <div class="nav-top">
             <a class="logo" href="index.html" aria-label="Visit the homepage">
@@ -25,13 +26,16 @@
 
             <script>
                 function myFunction() {
-                   console.log("clicked");
+                    console.log("clicked");
                 }
-               
+
             </script>
 
             <div class="buttons">
-                <button class="button" onclick="myFunction()"> <img src="img/Search.svg" alt="search" class="nav-icon">
+                <button class="button" onclick="myFunction()"> 
+                    <label for="search-toggle" class="search-toggle-label">
+                        <img src="img/Search.svg" alt="search" class="nav-icon">
+                    </label>
                 </button>
                 <button class="button" onclick="myFunction()"> <img src="img/Koszyk.svg" alt="koszyk" class="nav-icon">
                 </button>
@@ -47,7 +51,9 @@
         </div>
 
         <nav>
-            <div class="nav-title"><p>Kategorie</p> <img src="img/Close_square.svg" id="close-nav"alt="close"></div>
+            <div class="nav-title">
+                <p>Kategorie</p> <img src="img/Close_square.svg" id="close-nav" alt="close">
+            </div>
             <ul>
                 <li><a href="#">Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
                 <li><a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
@@ -58,19 +64,64 @@
                 <li><a href="#">Forum</a></li>
             </ul>
         </nav>
-        
+
+        <div class="search-bar">
+            <div class="search-field">
+                <button class="search-button"> <img src="img/Search-icon.svg" alt="search" class="search-image" ></button>
+                <span></span>
+                <input type="text" placeholder="Wyszukaj">
+            </div>
+            <div id="search-results" class="search-results-noshow">
+                <div class="result">
+                    <img src="img/Herbatka.png" alt="herbata" class="result-image">
+                    <div class="result-text">
+                        <h4>13,99 zł</h4>
+                        <p>Herbata zielona Hebapol</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </header>
 
     <main class="body">
         <p>aaaaaaaaaaaaaaaaa</p>
-        
+
     </main>
 
 
     <script>
-        document.querySelector('#close-nav').addEventListener('click', function() {
+        document.querySelector('#close-nav').addEventListener('click', function () {
             document.querySelector('.nav-toggle').click();
         });
+
+        document.querySelector('.nav-toggle').addEventListener('click', function () {
+            if (this.checked) {
+                document.querySelector('.search-toggle').checked = false;
+            }
+        });
+
+        document.querySelector('.search-toggle').addEventListener('click', function () {
+            if (this.checked) {
+                document.querySelector('.nav-toggle').checked = false;
+            }
+        });
+
+        document.querySelector('.search-field>input').addEventListener('input', function () {
+            if (this.value.length > 0) {
+                console.log(this.value);
+                document.querySelector('#search-results').classList.remove('search-results-noshow');
+                document.querySelector('#search-results').classList.add('search-results-show');
+            } else {
+                document.querySelector('#search-results').classList.remove('search-results-show');
+                document.querySelector('#search-results').classList.add('search-results-noshow');
+            }
+        });
+
+
+
+
     </script>
 </body>
 

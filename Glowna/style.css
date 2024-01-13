@@ -132,10 +132,204 @@ body{
     transform: scale(1,1);
   }
   
+  
   .nav-toggle:checked ~ nav a {
     opacity: 1;
     transition: opacity 250ms ease-in-out 250ms;
   }
+
+
+/* style przycisku szukania */
+  .search-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.search-toggle:checked ~ .search-bar {
+    transform: scale(1,1);
+  }
+
+  .search-toggle:checked ~ .search-bar input {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+
+
+/* style search bara */
+.search-bar {
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    z-index: 100;
+    left: 0;
+    background: #8CC084;
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 0.57rem;
+    height: fit-content;
+    padding: 0.75rem 1.08625rem 0.8125rem 1.0625rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+
+ /* search field to div robiacy za input w search barze */
+.search-field{
+    display: flex;
+    width: 20.35125rem;
+    height: 2.1875rem;
+    padding: 0.4375rem 0rem 0.375rem 0.62294rem;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-shrink: 0; 
+    border-radius: 1.5rem;
+    border: 2px solid #63915C;
+    background: rgba(114, 166, 106, 0.90); 
+    gap: 0.25rem;
+}
+
+.search-field>input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: rgba(239, 226, 219, 0.50);
+    font-family: var(--ff-primary);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+    display: flex;
+}
+
+.search-field>input:focus{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* style zmiena wygladu search fielda po kliknieciu w niego */
+
+.search-field:focus-within {
+    border: 2px solid #0C1F0D; 
+    background: rgba(13, 38, 10, 0.50); 
+}
+.search-field:focus-within>input {
+    color: #EFE2DB;
+}
+
+.search-field:focus-within>span {
+    background:#0C1F0D ;
+}
+
+.search-field:focus-within>.search-button>.search-image {
+    filter:brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(16%) hue-rotate(57deg) brightness(100%) contrast(102%);
+}
+
+.search-button{
+    align-self: center;
+    background: transparent;
+    border: none;
+    position: relative;
+    width: 1.375rem;
+    height: 1.375rem;
+    justify-content: center;
+}
+
+.search-button>img{
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-shrink: 0; 
+}
+
+.search-field>span{
+    align-self: center;
+    display: block;
+    background: #3D5D39;
+    width: 0.125rem;
+    height: 1.25rem;
+    border-radius: 2px;
+    position: relative;
+    margin: auto;
+}
+
+/* style search results noshow - nic nie wpisane w search input, nie widach search results */
+.search-results-noshow{
+    border: 2px solid #63915C;
+    width: 22.5rem;
+    height: 11.06675rem;
+    flex-shrink: 0; 
+    display: none;
+}
+/* style search results show - wpisano w search input, wyswietlic search results */
+.search-results-show{
+    background: rgba(0, 0, 0, 0.50); 
+    width: 22.5rem;
+    height: 11.06675rem;
+    flex-shrink: 0; 
+    display: block;
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+}
+
+/* result to pojedynczy wynik wyszukiwania */
+
+.result{
+    display: flex;
+width: 6.688rem;
+height: 9.81944rem;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+flex-shrink: 0; 
+}
+
+.result>img{
+    width: 6.688rem;
+    height: 6.688rem;
+    flex-shrink: 0; 
+    border-radius: 0.625rem 0.625rem 0rem 0rem;
+border-top: 1px solid #8C8A93;
+border-right: 1px solid #8C8A93; border-left: 1px solid #8C8A93; 
+}
+
+.result-text{
+    background-color: #8C8A93;
+    width: 6.688rem;
+height: 3.13144rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap:0.47rem;
+align-items: center;
+}
+
+.result-text>h4{
+    color: #223;
+font-family: var(--ff-primary);
+font-size: 0.836rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+}
+
+.result-text>p{
+    color: #223;
+    font-family: var(--ff-primary);
+    font-size: 0.418rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+}
+/* koniec styli search bara */
 
 
 /* style navbara */
