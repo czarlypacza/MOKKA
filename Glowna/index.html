@@ -56,10 +56,10 @@
             </div>
             <div class="nav-wrapper">
                 <ul>
-                    <li class="nav-option-more"><a href="#" >Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#" >Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#" >Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#" >Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Herbata</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">O nas</a></li>
                     <li><a href="#">Forum</a></li>
@@ -89,7 +89,84 @@
     </header>
 
     <main class="body">
-        <p>aaaaaaaaaaaaaaaaa</p>
+        <div class="carousel">
+            <div class="background"></div>
+            <img src="img/left_arrow.svg" alt="" id="carousel-left-arrow">
+            <img src="img/right_arrow.svg" alt="" id="carousel-right-arrow">
+            <h2>Dobre nawyki w parzeniu herbaty</h2>
+        </div>
+
+        <div class="popular-subjects">
+            <h2>Popularne tematy</h2>
+            <div class="subject"><img src="img/Konto.svg" alt="">
+                <div class="subject-text">
+                    <h3>Prezent dla dziadków</h3>
+                    <p>Szukam prezentu który będzie klasycznny i w klimacie świątecznym mile widziane były by her...</p>
+                </div>
+            </div>
+            <div class="subject"><img src="img/Konto.svg" alt="">
+                <div class="subject-text">
+                    <h3>Gorzki smak Yerba Mate</h3>
+                    <p>Witam, przychodze do państwa z następującym problemem. Mianowicie moja yerba smakuje go...</p>
+                </div>
+            </div>
+            <div class="subject"><img src="img/Konto.svg" alt="">
+                <div class="subject-text">
+                    <h3>Jaką herbatę można parzyć wielokrotnie?</h3>
+                    <p>Jak w tytule, jakie odmiany herbat można zaparzać wielokrotnie, a które wręcz przeciwnie...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="best-weekly">
+            <h2>Produkty tygodnia</h2>
+            <div class="products-carousel">
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="img/Herbatka.png" alt="herbata">
+                    <div class="product-text">
+                        <h3>Herbata zielona Hebapol</h3>
+                        <p>13,99 zł</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
     </main>
 
@@ -124,8 +201,8 @@
 
         const categories = {
             'Herbata': ['Czarna', 'Biala', 'Zielona', 'Czerwona', 'Oolong', 'Żółta', 'Owocowa'],
-            'Yerba': ['Argentyńska', 'Urugwajska', 'Paragwajska','Brazylijska','Owocowa'],
-            'Kawa': ['Ziarnista', 'Mielona', 'Rozpuszczalna','Wszystko'],
+            'Yerba': ['Argentyńska', 'Urugwajska', 'Paragwajska', 'Brazylijska', 'Owocowa'],
+            'Kawa': ['Ziarnista', 'Mielona', 'Rozpuszczalna', 'Wszystko'],
             'Akcesoria': ['Herbata', 'Yerba', 'Kawa'],
         };
 
@@ -140,70 +217,102 @@
         const ul = document.querySelector('nav ul');
 
         function nav_function() {
-                const category = this.textContent;
-                const subcategories = categories[category];
-                const ul = this.parentElement;
+            const category = this.textContent;
+            const subcategories = categories[category];
+            const ul = this.parentElement;
+            ul.innerHTML = '';
+            subcategories.forEach(subcategory => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
+                ul.appendChild(li);
+            });
+            setTimeout(() => {
+                nav.style.transform = 'translateX(0)';
+            }, 100);
+            setTimeout(() => {
+                nav.style.transform = 'translateX(-100%)';
+            }, 50);
+            setTimeout(() => {
+                nav.style.transform = '';
+            }, 200);
+
+            document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
+            document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
+            document.querySelector('#close-nav').addEventListener('click', function () {
+                nav.style.transform = '';
                 ul.innerHTML = '';
-                subcategories.forEach(subcategory => {
+                Object.keys(categories).forEach(category => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
+                    li.classList.add('nav-option-more');
+                    li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+                    li.addEventListener('click', nav_function);
                     ul.appendChild(li);
                 });
-                setTimeout(() => {
-                    nav.style.transform = 'translateX(0)';
-                }, 100);
-                setTimeout(() => {
-                    nav.style.transform = 'translateX(-100%)';
-                }, 50);
-                setTimeout(() => {
-                    nav.style.transform = '';
-                }, 200);
-
-                document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
-                document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
-                document.querySelector('#close-nav').addEventListener('click', function () {
-                    nav.style.transform = '';
-                    ul.innerHTML = '';
-                    Object.keys(categories).forEach(category => {
-                        const li = document.createElement('li');
-                        li.classList.add('nav-option-more');
-                        li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
-                        li.addEventListener('click', nav_function);
-                        ul.appendChild(li);
-                    });
-                    extra_categories.forEach(category => {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<a href="#">${category}</a>`;
-                        ul.appendChild(li);
-                    });
-                    document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
-                    document.querySelector('#close-nav').addEventListener('click', function () {
-                        document.querySelector('.nav-toggle').click();
-                    });
+                extra_categories.forEach(category => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="#">${category}</a>`;
+                    ul.appendChild(li);
                 });
-            }
-
-            navItems.forEach(item => {
-                item.addEventListener('click', nav_function);
+                document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
+                document.querySelector('#close-nav').addEventListener('click', function () {
+                    document.querySelector('.nav-toggle').click();
+                });
             });
+        }
 
-            // const back = document.querySelector('#close-nav');
-            // back.addEventListener('click', function () {
-            //     ul.innerHTML = '';
-            //     Object.keys(categories).forEach(category => {
-            //         const li = document.createElement('li');
-            //         li.classList.add('nav-option-more');
-            //         li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
-            //         li.addEventListener('click', nav_function);
-            //         ul.appendChild(li);
-            //     });
-            //     extra_categories.forEach(category => {
-            //         const li = document.createElement('li');
-            //         li.innerHTML = `<a href="#">${category}</a>`;
-            //         ul.appendChild(li);
-            //     });
-            // });
+        navItems.forEach(item => {
+            item.addEventListener('click', nav_function);
+        });
 
+        // const back = document.querySelector('#close-nav');
+        // back.addEventListener('click', function () {
+        //     ul.innerHTML = '';
+        //     Object.keys(categories).forEach(category => {
+        //         const li = document.createElement('li');
+        //         li.classList.add('nav-option-more');
+        //         li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+        //         li.addEventListener('click', nav_function);
+        //         ul.appendChild(li);
+        //     });
+        //     extra_categories.forEach(category => {
+        //         const li = document.createElement('li');
+        //         li.innerHTML = `<a href="#">${category}</a>`;
+        //         ul.appendChild(li);
+        //     });
+        // });
+
+        const carousel_array = [{ img: "img/dobre-nawyki.png", txt: "Dobre nawyki w parzeniu herbaty" },
+        { img: "img/carousel2.png", txt: "Inspiracje na świąteczne prezenty" },
+        { img: "img/carousel3.png", txt: "Tajna recaptura na odchudzanie" },
+        { img: "img/carousel4.png", txt: "Nowość! Kawa na zimno" },]
+
+        var index = 0;
+
+        const carousel = document.querySelector('.carousel');
+        const carousel_left_arrow = document.querySelector('#carousel-left-arrow');
+        const carousel_right_arrow = document.querySelector('#carousel-right-arrow');
+        const carousel_text = document.querySelector('.carousel h2');
+        carousel_right_arrow.addEventListener('click', function () {
+            if (index == carousel_array.length - 1) {
+                index = 0;
+            } else {
+                index = (index + 1);
+            }
+            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
+            carousel_text.textContent = carousel_array[index].txt;
+            console.log(index);
+        });
+
+        carousel_left_arrow.addEventListener('click', function () {
+            if (index == 0) {
+                index = carousel_array.length - 1;
+            } else {
+                index = (index - 1);
+            }
+            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
+            carousel_text.textContent = carousel_array[index].txt;
+            console.log(index);
+        });
 
 
     </script>
