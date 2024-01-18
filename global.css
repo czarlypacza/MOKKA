@@ -510,7 +510,7 @@ nav li:focus {
     
     .nav-top{
         display: flex;
-        height: 7.375rem;
+        height: 6rem;
         padding: 0rem 2.3125rem;
         justify-content: space-between;
         align-items: center;
@@ -519,7 +519,7 @@ nav li:focus {
 
     .logo>img{
         width: fit-content;
-        height: 3.8rem;
+        height: 3rem;
         flex-shrink: 0; 
     }
 
@@ -543,8 +543,8 @@ nav li:focus {
     }   
 
     .nav-icon{
-        width: 4.6875rem;
-        height: 4.6875rem;  
+        width: 4rem;
+        height: 4rem;  
     }
 
     nav{

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Artykuł</title>
+</head>
+
+<body>
+
+    <header class="nav-container">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="search-toggle" class="search-toggle">
+
+        <div class="nav-top">
+            <a class="logo" href="../Glowna/index.html" aria-label="Visit the homepage">
+                <img src="../imgGlobal/Logo.svg" alt="logo" class="logo-logoMark">
+            </a>
+
+            <script>
+                function myFunction() {
+                    console.log("clicked");
+                }
+
+            </script>
+
+            <div class="buttons">
+                <button class="button" onclick="myFunction()">
+                    <label for="search-toggle" class="search-toggle-label">
+                        <img src="../imgGlobal/Search.svg" alt="search" class="nav-icon">
+                    </label>
+                </button>
+                <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Koszyk.svg" alt="koszyk" class="nav-icon">
+                </button>
+                <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Konto.svg" alt="konto" class="nav-icon">
+                </button>
+                <button class="button">
+                    <img src="../imgGlobal/Tlo.svg" alt="menu" class="nav-icon">
+                    <label for="nav-toggle" class="nav-toggle-label">
+                        <span></span>
+                    </label>
+                </button>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-title">
+                <p>Kategorie</p> <img src="../imgGlobal/Close_square.svg" id="close-nav" class="close-nav" alt="close">
+            </div>
+            <div class="nav-wrapper">
+                <ul>
+                    <li class="nav-option-more"><a href="#">Herbata</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Yerba</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Kawa</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more"><a href="#">Akcesoria</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">O nas</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="search-bar">
+            <div class="search-field">
+                <button class="search-button"> <img src="../imgGlobal/Search-icon.svg" alt="search"
+                        class="search-image"></button>
+                <span></span>
+                <input type="text" placeholder="Wyszukaj">
+            </div>
+            <div id="search-results" class="search-results-noshow">
+                <div class="result">
+                    <img src="../imgGlobal/Herbatka.png" alt="herbata" class="result-image">
+                    <div class="result-text">
+                        <h4>13,99 zł</h4>
+                        <p>Herbata zielona Hebapol</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+    <main class="body">
+        <div class="title_autor">
+            <div class="title_star">
+                <div class="title">Prezentowe inspiracje na święta dla każdego.</div>
+                <div class="star"><img src="img/star.svg" class="starImg" alt="star" onclick="changeStar(this)"></div>
+            </div>
+            <div class="autor">
+                <p>Piotr Pietruszyński</p>
+                <img src="img/avatar.png" class="avatar" alt="avatar">
+            </div>
+        </div>
+        <hr class="line">
+        
+        <script>
+            function changeStar(obrazek) {
+                if (obrazek.src.endsWith("star.svg")) {
+                    obrazek.src = "img/star2.svg";
+                } else {
+                    obrazek.src = "img/star.svg";
+                }
+            }
+        </script>
+
+        <div class="contents">
+            <p>Spis treści</p>
+            <ol>
+                <li><a href="#p1">Zestawy świąteczne</a></li>
+                <li><a href="#p2">Ekskluzywne yerby z dalekich zakątków świata</a></li>
+                <li><a href="#p3">Luksusowe kawy</a></li>
+                <li><a href="#p4">Podsumowanie</a></li>
+            </ol>
+        </div>
+
+        <div class="paragraph" id="p1">
+            <p class="pTitle">1. Zestawy świąteczne</p>
+            <p class="pText">Czarujące Aromaty i Smaki: Świąteczne Inspiracje z Sklepu z Herbatą, Yerbą i Kawą<br>
+                Święta to czas, kiedy aromatyczne napoje stają się prawdziwym ukojeniem dla zmarzlaków oraz miłośników wyjątkowych smaków. Jeśli poszukujesz doskonałych prezentów dla pasjonatów herbaty, yeryby i kawy, nasz sklep to miejsce, gdzie znajdziesz magię smaków w pięknych opakowaniach. Poniżej przedstawiamy kilka inspiracji, które sprawią, że tegoroczne święta staną się niezapomniane dla każdego wielbiciela napojów z naszego asortymentu.</p>
+        </div>
+
+        <div class="paragraph" id="p2">
+            <p class="pTitle">2. Ekskluzywne yerby z dalekich zakątków świata</p>
+            <p class="pText">Dla miłośników yerby proponujemy ekskluzywne mieszanki prosto z najdalszych zakątków świata. W naszym sklepie znajdziesz yerby z Argentyny, Brazylii, Paragwaju i innych regionów, które zachwycą nie tylko smakiem, ale także aromatem. To doskonały prezent dla osób poszukujących nowych doznań smakowych i pragnących wyruszyć w podróż smakową bez wychodzenia z domu.</p>
+        </div>
+
+        <div class="paragraph" id="p3">
+            <p class="pTitle">3. Luksusowe kawy</p>
+            <p class="pText">Dla prawdziwych koneserów kawy proponujemy nasze luksusowe mieszanki pochodzące z najwyższej jakości ziaren. Oferujemy kawy z różnych regionów, o różnych stopniach palenia, dostosowane do indywidualnych preferencji. Każda kawa w naszym sklepie to mała podróż po świecie smaków, zapewniająca niezapomniane chwile przy kubku aromatycznego napoju.</p>
+        </div>
+
+        <div class="paragraph" id="p4">
+            <p class="pTitle">4. Podsumowanie</p>
+            <p class="pText">W naszym sklepie z herbatą, yerbą i kawą pragniemy dostarczyć nie tylko produkty najwyższej jakości, ale także niezapomniane doświadczenia smakowe. Święta to czas magiczny, pełen aromatycznych chwil spędzonych z najbliższymi. Dlatego też, wybierając prezenty z naszego sklepu, sprawisz, że tegoroczne święta staną się jeszcze bardziej wyjątkowe. Pozwól sobie na podróż po smakach i zaproś swoich bliskich do świata aromatycznych przyjemności. Wesołych Świąt!</p>
+        </div>
+
+    </main>
+    <div class="ideas">
+        <p class="ideasText">Pomysły na prezent</p>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <div class="item"><img src="img/Polecane/1.png" alt="Polecane 1"><div class="itemName"><p class="price">13,99 zł</p><p class="itemText">Herbata Zielona Herbapol</p></div></div>
+                    <div class="item"><img src="img/Polecane/2.png" alt="Polecane 2"><div class="itemName"><p class="price">28,99 zł</p><p class="itemText">Yerba Mate Green Ilex Paragueriensis</p></div></div>
+                    <div class="item"><img src="img/Polecane/3.png" alt="Polecane 3"><div class="itemName"><p class="price">35,98 zł</p><p class="itemText">Kawa Daktylowa Natura Wita</p></div></div>
+                    <div class="item"><img src="img/Polecane/4.png" alt="Polecane 4"><div class="itemName"><p class="price">12,99 zł</p><p class="itemText">Bezglutenowa Kawa Inka</p></div></div>
+                    <div class="item"><img src="img/Polecane/5.png" alt="Polecane 5"><div class="itemName"><p class="price">13,99 zł</p><p class="itemText">Herbata Zielona Herbapol</p></div></div>
+                    <div class="item"><img src="img/Polecane/6.png" alt="Polecane 6"><div class="itemName"><p class="price">21,99 zł</p><p class="itemText">Yerba Mate Loyd Mint & Lemongrass</p></div></div>
+                    <div class="item"><img src="img/Polecane/7.png" alt="Polecane 7"><div class="itemName"><p class="price">35,89 zł</p><p class="itemText">Kawa Daktylowa Natura Wita</p></div></div>
+                </div>
+            </div>
+
+            <script>
+                var galleryContainers = document.querySelectorAll('.gallery-container');
+
+                galleryContainers.forEach(function (galleryContainer) {
+                    var isMouseDown = false;
+                    var startX;
+                    var scrollLeft;
+
+                    galleryContainer.addEventListener('mousedown', function (e) {
+                        isMouseDown = true;
+                        startX = e.pageX - galleryContainer.offsetLeft;
+                        scrollLeft = galleryContainer.scrollLeft;
+                    });
+
+                    galleryContainer.addEventListener('mousemove', function (e) {
+                        if (!isMouseDown) return;
+                        var x = e.pageX - galleryContainer.offsetLeft;
+                        var walk = (x - startX);
+
+                        galleryContainer.scrollLeft = scrollLeft - walk;
+                    });
+
+                    galleryContainer.addEventListener('mouseup', function () {
+                        isMouseDown = false;
+                    });
+
+                    galleryContainer.addEventListener('mouseleave', function () {
+                        isMouseDown = false;
+                    });
+                });
+            </script>
+        </div>
+
+    <div id="footer">
+        <div id="footer_info">
+            <div class="info">
+                <h2>Konto</h2>
+                <p>Logowanie</p>
+                <hr class="spacer">
+                <p>Rejestracja</p>
+            </div>
+            <div class="info">
+                <h2>Informacje</h2>
+                <p>Zwroty</p>
+                <hr class="spacer">
+                <p>Reklamacje</p>
+                <hr class="spacer">
+                <p>Dostawa</p>
+                <hr class="spacer">
+                <p>Realizacja zamówień</p>
+            </div>
+            <div class="info">
+                <h2>Regulaminy</h2>
+                <p>Regulamin sklepu</p>
+                <hr class="spacer">
+                <p>Polityka prywatności</p>
+            </div>
+        </div>
+        <hr style="border: 0.05rem solid black;">
+        <div id="copyright">2023 mokka.pl All rights reserved.</div>
+    </div>
+
+    <script src="../navbar.js">
+        
+    </script>
+</body>
+
+</html>

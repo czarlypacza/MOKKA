@@ -183,8 +183,14 @@ h5>img{
 .spacerDoc{
     height: 1rem;
 }
+.coffeeType-viewport::-webkit-scrollbar {
+    display: none;
+}
+.best-weekly-viewport::-webkit-scrollbar {
+    display: none;
+}
 
-@media only screen and (min-width:1024px) {
+@media screen and (min-width:1024px) {
     h1{
         font-size: 3rem;
     }
@@ -195,10 +201,9 @@ h5>img{
     .caffeLogo > img {
         height: 16rem;
     }
-    .coffeeType-viewport::-webkit-scrollbar {
-        display: none;
-    }
-    .best-weekly-viewport::-webkit-scrollbar {
-        display: none;
-    }
+
+
 }
+
+
+
