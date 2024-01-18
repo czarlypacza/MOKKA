@@ -686,7 +686,7 @@ nav li:focus {
     .login{
         z-index: 999;
         position: absolute;
-        top: 6.03125rem;
+        top: 4.8rem;
         right: 2.3125rem;
         display:none;
         flex-direction: column;
@@ -765,7 +765,7 @@ nav li:focus {
 
     #options_herbata{
         position: absolute;
-        top: 10.375rem;
+        top: 9rem;
         left: 2rem;
         z-index: 999;
         display: none;
