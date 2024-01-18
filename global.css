@@ -185,6 +185,10 @@ body{
 
 
  /* search field to div robiacy za input w search barze */
+ .search-field-desktop{
+    display: none;
+ }
+
 .search-field{
     display: flex;
     width: 20.35125rem;
@@ -446,6 +450,9 @@ nav li:focus {
     height: fit-content;
 }
 
+
+
+
 #footer {
     margin-top: auto;
     padding-top: 0.3rem;
@@ -490,6 +497,14 @@ nav li:focus {
 }
 
 
+.login{
+    display: none;
+}
+
+#options_herbata{
+    display: none;
+}
+
 
 @media only screen and (min-width:1024px) {
     
@@ -530,6 +545,270 @@ nav li:focus {
     .nav-icon{
         width: 4.6875rem;
         height: 4.6875rem;  
+    }
+
+    nav{
+        transform: scale(1, 1);
+        border-radius: 0;
+        padding: 0rem 5.625rem; 
+        height: fit-content; 
+    }
+
+    nav>div{
+        border-bottom: none;
+    }
+    
+    .nav-title{
+        display: none;
+    }
+
+    .nav-wrapper {
+        animation: none;
+        width: 100%;
+        height: fit-content;
+    }
+
+    nav ul{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav li{
+        flex-direction: row;
+        width: fit-content;
+    }
+
+    nav li>img{
+        transform: rotate(90deg);
+    }
+
+    .search-toggle-label{
+        height: 3rem;
+    }
+
+    .search-field-desktop{
+        display: none;
+        width: 25rem;
+        height: 4.6875rem; 
+        padding: 0.4375rem 0rem 0.375rem 0.62294rem;
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex-shrink: 0; 
+        border-radius: 5rem;
+        border: 2px solid #63915C;
+        background: rgba(114, 166, 106, 0.90); 
+        gap: 0.25rem;
+    }
+    
+    .search-field-desktop>input{
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        color: rgba(239, 226, 219, 0.50);
+        font-family: var(--ff-primary);
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal; 
+        display: flex;
+    }
+    
+    .search-field-desktop>input:focus{
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+
+
+    .search-button{
+        align-self: center;
+        background: transparent;
+        border: none;
+        position: relative;
+        width: 3rem;
+        height: 3rem;
+        justify-content: center;
+    }
+    
+    .search-button>img{
+        width: 3rem;
+        height: 3rem;
+        flex-shrink: 0; 
+    }
+    
+    .search-field-desktop>span{
+        align-self: center;
+        display: block;
+        background: #3D5D39;
+        width: 0.25rem;
+        height: 3.6875rem;
+        border-radius: 2px;
+        position: relative;
+        margin: auto;
+    }
+
+    .search-bar{
+        display: none;
+        border-radius: 0 0 2rem 2rem;
+        padding: 0 0 2rem 0;
+    }
+
+    .search-results-show{
+        background: rgba(0, 0, 0, 0.50); 
+        width: 100%;
+        height: 11.06675rem;
+        flex-shrink: 0; 
+        display: block;
+        padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+        
+    }
+    
+    .search-field-desktop:focus-within {
+        border: 2px solid #0C1F0D; 
+        background: rgba(13, 38, 10, 0.50); 
+    }
+    .search-field-desktop:focus-within>input {
+        color: #EFE2DB;
+    }
+    
+    .search-field-desktop:focus-within>span {
+        background:#0C1F0D ;
+    }
+    
+    .search-field-desktop:focus-within>.search-button>.search-image {
+        filter:brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(16%) hue-rotate(57deg) brightness(100%) contrast(102%);
+    }
+
+
+    .login{
+        z-index: 999;
+        position: absolute;
+        top: 6.03125rem;
+        right: 2.3125rem;
+        display:none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.625rem;
+        border-radius: 3.125rem 0rem 3.125rem 3.125rem;
+        border: 5px solid var(--duzoZielen, #8CC084);
+        background: var(--maloZielen, #C4D6B0);
+        padding-inline: 2.25rem;
+        padding-bottom: 1rem ;
+    }
+    
+    .login>h2{
+        color: #463F3A;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 2.5rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    .login>input{
+        display: flex;
+        width: 31.25rem;
+        height: 3.4375rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.375rem;
+        flex-shrink: 0;
+        background: var(--duzoZielen, #8CC084);
+        border: 1px solid lightgray;
+        border-radius: 1rem;
+        font-size: 2rem;
+        color: #463F3A;
+        padding: 0rem 0.5rem 0rem 0.5rem;
+    }
+
+
+    .login>p{
+        color: #6DB9FF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 0.6875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        align-self: flex-start;
+        margin-left: 0.5rem;
+    }
+
+    .login>div{
+        display: flex;
+        gap:1rem;
+    }
+
+    .login-button{
+        display: inline-flex;
+        padding: 0.875rem 0.375rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.6875rem;
+        background: var(--duzoZielen, #8CC084);
+        border: none;
+        color: #463F3A;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+
+
+    #options_herbata{
+        position: absolute;
+        top: 10.375rem;
+        left: 2rem;
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        background-color: var(--duzoZielen, #8CC084);
+        align-items: center;
+        border-radius: 0rem 0rem 2.125rem 2.125rem;
+        border-top: 1px solid #8A817C;
+        background: rgba(140, 192, 132, 0.90);
+    }
+
+    #options_herbata>div{
+        flex-direction: column;
+        align-items: center;
+        gap: 0.625rem;
+        padding: 1rem 2.625rem 1rem 2.625rem;
+        width: 100%;
+    }
+
+    #options_herbata>div:hover{
+        border-radius: 0.25rem;
+        background: rgba(99, 145, 92, 0.44);
+    }
+
+    #options_herbata>div:last-child:hover{
+        border-radius: 0.25rem;
+        background: rgba(99, 145, 92, 0.44);
+        border-radius: 0rem 0rem 2.125rem 2.125rem;
+
+    }
+
+    #options_herbata div>p{
+        color: #463F3A;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    #options_herbata>div:hover p {
+        text-decoration: underline;
     }
 
     #footer {
