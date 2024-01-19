@@ -78,15 +78,21 @@
                     <li class="nav-option-more" id="herbatka">
                         <a href="#">Herbata</a><img src="img/Vector.svg" alt="arrow">
                     </li>
-                    
-                    <li class="nav-option-more"><a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#">Kawa</a><img src="img/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#">Akcesoria</a><img src="img/Vector.svg" alt="arrow"></li>
+
+                    <li class="nav-option-more" id="yerba">
+                        <a href="#">Yerba</a><img src="img/Vector.svg" alt="arrow">
+                    </li>
+                    <li class="nav-option-more" id="kawa">
+                        <a href="#">Kawa</a><img src="img/Vector.svg" alt="arrow">
+                    </li>
+                    <li class="nav-option-more" id="akcesoria">
+                        <a href="#">Akcesoria</a><img src="img/Vector.svg" alt="arrow">
+                    </li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">O nas</a></li>
                     <li><a href="#">Forum</a></li>
                 </ul>
-                
+
             </div>
         </nav>
 
@@ -113,6 +119,52 @@
                 <p>Owocowa</p>
             </div>
         </div>
+
+        <div id="options_yerba">
+            <div>
+                <p>Argentyńska</p>
+            </div>
+            <div>
+                <p>Urugwajska</p>
+            </div>
+            <div>
+                <p>Paragwajska</p>
+            </div>
+            <div>
+                <p>Brazylijska</p>
+            </div>
+            <div>
+                <p>Owocowa</p>
+            </div>
+        </div>
+
+        <div id="options_kawa">
+            <div>
+                <p>Ziarnista</p>
+            </div>
+            <div>
+                <p>Mielona</p>
+            </div>
+            <div>
+                <p>Rozpuszczalna</p>
+            </div>
+            <div>
+                <p>Wszystko</p>
+            </div>
+        </div>
+
+        <div id="options_akcesoria">
+            <div>
+                <p>Herbata</p>
+            </div>
+            <div>
+                <p>Yerba</p>
+            </div>
+            <div>
+                <p>Kawa</p>
+            </div>
+        </div>
+
 
         <div class="search-bar">
             <div class="search-field">
@@ -209,6 +261,27 @@
                         </div>
                     </div>
 
+                    <div class="product">
+                        <img src="img/Herbatka.png" alt="herbata">
+                        <div class="product-text">
+                            <h3>Herbata zielona Hebapol</h3>
+                            <p>13,99 zł</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="img/Herbatka.png" alt="herbata">
+                        <div class="product-text">
+                            <h3>Herbata zielona Hebapol</h3>
+                            <p>13,99 zł</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="img/Herbatka.png" alt="herbata">
+                        <div class="product-text">
+                            <h3>Herbata zielona Hebapol</h3>
+                            <p>13,99 zł</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -342,7 +415,7 @@
             if (window.innerWidth < 1024)
                 item.addEventListener('click', nav_function);
         });
-    
+
 
 
 
@@ -401,7 +474,7 @@
 
         const login_button = document.querySelector('#logowanie');
         const login = document.querySelector('.login');
-        
+
         if (window.innerWidth > 1024) {
             login_button.addEventListener('click', function () {
                 if (getComputedStyle(login).display === 'none') {
@@ -411,17 +484,75 @@
                 }
             });
         }
-        
+
 
         const herbatka = document.querySelector('#herbatka');
         const options_herbata = document.querySelector('#options_herbata');
         if (window.innerWidth > 1024) {
-            herbatka.addEventListener('click', function () {
+            herbatka.addEventListener('click', function (e) {
                 console.log(options_herbata);
                 if (getComputedStyle(options_herbata).display === 'none') {
                     options_herbata.style.display = 'flex';
+                    const buttonRect = herbatka.getBoundingClientRect();
+                    const options_width = options_herbata.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_herbata.style.left = `${buttonCenterX}px`;
                 } else {
                     options_herbata.style.display = 'none';
+                }
+            });
+        }
+
+        const yerba = document.querySelector('#yerba');
+        const options_yerba = document.querySelector('#options_yerba');
+        if (window.innerWidth > 1024) {
+            yerba.addEventListener('click', function (e) {
+                console.log(options_yerba);
+                if (getComputedStyle(options_yerba).display === 'none') {
+                    options_yerba.style.display = 'flex';
+                    const buttonRect = yerba.getBoundingClientRect();
+                    const options_width = options_yerba.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_yerba.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_yerba.style.display = 'none';
+                }
+            });
+        }
+
+        const kawa = document.querySelector('#kawa');
+        const options_kawa = document.querySelector('#options_kawa');
+
+        if (window.innerWidth > 1024) {
+            kawa.addEventListener('click', function (e) {
+                console.log(options_kawa);
+                if (getComputedStyle(options_kawa).display === 'none') {
+                    options_kawa.style.display = 'flex';
+                    const buttonRect = kawa.getBoundingClientRect();
+                    const options_width = options_kawa.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2)-options_width/2;
+                    options_kawa.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_kawa.style.display = 'none';
+                }
+            });
+        }
+
+
+        const akcesoria = document.querySelector('#akcesoria');
+        const options_akcesoria = document.querySelector('#options_akcesoria');
+
+        if (window.innerWidth > 1024) {
+            akcesoria.addEventListener('click', function (e) {
+                console.log(options_akcesoria);
+                if (getComputedStyle(options_akcesoria).display === 'none') {
+                    options_akcesoria.style.display = 'flex';
+                    const buttonRect = akcesoria.getBoundingClientRect();
+                    const options_width = options_akcesoria.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_akcesoria.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_akcesoria.style.display = 'none';
                 }
             });
         }
