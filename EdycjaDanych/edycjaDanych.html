@@ -21,7 +21,7 @@
         <input type="checkbox" id="search-toggle" class="search-toggle">
 
         <div class="nav-top">
-            <a class="logo" href="../Glowna/index.html" aria-label="Visit the homepage">
+            <a class="logo" href="index.html" aria-label="Visit the homepage">
                 <img src="../imgGlobal/Logo.svg" alt="logo" class="logo-logoMark">
             </a>
 
@@ -33,15 +33,33 @@
             </script>
 
             <div class="buttons">
-                <button class="button" onclick="myFunction()">
+
+                <div class="search-field-desktop" id="desktop-search">
+                    <button class="search-button"> <img src="../imgGlobal/Search-icon.svg" alt="search"
+                            class="search-image"></button>
+                    <span></span>
+                    <input type="text" placeholder="Wyszukaj">
+                </div>
+
+                <button class="button" id="search-button" onclick="myFunction()">
                     <label for="search-toggle" class="search-toggle-label">
                         <img src="../imgGlobal/Search.svg" alt="search" class="nav-icon">
                     </label>
                 </button>
                 <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Koszyk.svg" alt="koszyk" class="nav-icon">
                 </button>
-                <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Konto.svg" alt="konto" class="nav-icon">
+                <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Konto.svg" alt="konto" class="nav-icon"
+                        id="logowanie">
                 </button>
+                <div class="login">
+                    <h2>Logowanie</h2>
+                    <input type="text" placeholder="Login"><input type="text" placeholder="Hasło">
+                    <p>Nie pamiętam hasła</p>
+                    <div>
+                        <button class="login-button">Utwórz konto</button>
+                        <button class="login-button">Zaloguj</button>
+                    </div>
+                </div>
                 <button class="button">
                     <img src="../imgGlobal/Tlo.svg" alt="menu" class="nav-icon">
                     <label for="nav-toggle" class="nav-toggle-label">
@@ -57,16 +75,96 @@
             </div>
             <div class="nav-wrapper">
                 <ul>
-                    <li class="nav-option-more"><a href="#">Herbata</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#">Yerba</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#">Kawa</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
-                    <li class="nav-option-more"><a href="#">Akcesoria</a><img src="../imgGlobal/Vector.svg" alt="arrow"></li>
+                    <li class="nav-option-more" id="herbatka">
+                        <a href="#">Herbata</a><img src="../imgGlobal/Vector.svg" alt="arrow">
+                    </li>
+
+                    <li class="nav-option-more" id="yerba">
+                        <a href="#">Yerba</a><img src="../imgGlobal/Vector.svg" alt="arrow">
+                    </li>
+                    <li class="nav-option-more" id="kawa">
+                        <a href="#">Kawa</a><img src="../imgGlobal/Vector.svg" alt="arrow">
+                    </li>
+                    <li class="nav-option-more" id="akcesoria">
+                        <a href="#">Akcesoria</a><img src="../imgGlobal/Vector.svg" alt="arrow">
+                    </li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">O nas</a></li>
                     <li><a href="#">Forum</a></li>
                 </ul>
+
             </div>
         </nav>
+
+        <div id="options_herbata">
+            <div>
+                <p>Czarna</p>
+            </div>
+            <div>
+                <p>Biała</p>
+            </div>
+            <div>
+                <p>Zielona</p>
+            </div>
+            <div>
+                <p>Czerwona</p>
+            </div>
+            <div>
+                <p>Oolong</p>
+            </div>
+            <div>
+                <p>Żółta</p>
+            </div>
+            <div>
+                <p>Owocowa</p>
+            </div>
+        </div>
+
+        <div id="options_yerba">
+            <div>
+                <p>Argentyńska</p>
+            </div>
+            <div>
+                <p>Urugwajska</p>
+            </div>
+            <div>
+                <p>Paragwajska</p>
+            </div>
+            <div>
+                <p>Brazylijska</p>
+            </div>
+            <div>
+                <p>Owocowa</p>
+            </div>
+        </div>
+
+        <div id="options_kawa">
+            <div>
+                <p>Ziarnista</p>
+            </div>
+            <div>
+                <p>Mielona</p>
+            </div>
+            <div>
+                <p>Rozpuszczalna</p>
+            </div>
+            <div>
+                <p>Wszystko</p>
+            </div>
+        </div>
+
+        <div id="options_akcesoria">
+            <div>
+                <p>Herbata</p>
+            </div>
+            <div>
+                <p>Yerba</p>
+            </div>
+            <div>
+                <p>Kawa</p>
+            </div>
+        </div>
+
 
         <div class="search-bar">
             <div class="search-field">
@@ -88,7 +186,6 @@
         </div>
 
     </header>
-
     <main id="bodyDesktop">
         
         <div class="row">
@@ -226,8 +323,307 @@
         <div id="copyright">2023 mokka.pl All rights reserved.</div>
     </div>
 
-    <script src="../navbar.js">
-        
+    <script>
+        document.querySelector('#close-nav').addEventListener('click', function () {
+            document.querySelector('.nav-toggle').click();
+        });
+
+        document.querySelector('.nav-toggle').addEventListener('click', function () {
+            if (this.checked) {
+                document.querySelector('.search-toggle').checked = false;
+            }
+        });
+
+        document.querySelector('.search-toggle').addEventListener('click', function () {
+            if (this.checked) {
+                document.querySelector('.nav-toggle').checked = false;
+            }
+        });
+
+        document.querySelector('.search-field>input').addEventListener('input', function () {
+            if (this.value.length > 0) {
+                console.log(this.value);
+                document.querySelector('#search-results').classList.remove('search-results-noshow');
+                document.querySelector('#search-results').classList.add('search-results-show');
+            } else {
+                document.querySelector('#search-results').classList.remove('search-results-show');
+                document.querySelector('#search-results').classList.add('search-results-noshow');
+            }
+        });
+
+        const categories = {
+            'Herbata': ['Czarna', 'Biala', 'Zielona', 'Czerwona', 'Oolong', 'Żółta', 'Owocowa'],
+            'Yerba': ['Argentyńska', 'Urugwajska', 'Paragwajska', 'Brazylijska', 'Owocowa'],
+            'Kawa': ['Ziarnista', 'Mielona', 'Rozpuszczalna', 'Wszystko'],
+            'Akcesoria': ['Herbata', 'Yerba', 'Kawa'],
+        };
+
+        const extra_categories = [
+            'Blog',
+            'O nas',
+            'Forum',
+        ];
+
+        const navItems = document.querySelectorAll('nav ul li.nav-option-more');
+        const nav = document.querySelector('nav');
+        const ul = document.querySelector('nav ul');
+
+        function nav_function() {
+            if (window.innerWidth < 1024) {
+                const category = this.textContent.trim();
+                console.log(category);
+
+                const subcategories = categories[category];
+                const ul = this.parentElement;
+                ul.innerHTML = '';
+                subcategories.forEach(subcategory => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
+                    ul.appendChild(li);
+                });
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(0)';
+                }, 100);
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(-100%)';
+                }, 50);
+                setTimeout(() => {
+                    nav.style.transform = '';
+                }, 200);
+
+                document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
+                document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
+                document.querySelector('#close-nav').addEventListener('click', function () {
+                    nav.style.transform = '';
+                    ul.innerHTML = '';
+                    Object.keys(categories).forEach(category => {
+                        const li = document.createElement('li');
+                        li.classList.add('nav-option-more');
+                        li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+                        li.addEventListener('click', nav_function);
+                        ul.appendChild(li);
+                    });
+                    extra_categories.forEach(category => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="#">${category}</a>`;
+                        ul.appendChild(li);
+                    });
+                    document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
+                    document.querySelector('#close-nav').addEventListener('click', function () {
+                        document.querySelector('.nav-toggle').click();
+                    });
+                });
+            }
+        }
+
+        navItems.forEach(item => {
+            item.addEventListener('click', nav_function);
+        });
+
+
+        const search_desktop = document.querySelector('.search-toggle-label');
+        const search_bar_desktop = document.querySelector('.search-field-desktop');
+        const search_button = document.querySelector('#search-button');
+
+        search_desktop.addEventListener('click', function () {
+            if (window.innerWidth > 1024) {
+                if (getComputedStyle(search_bar_desktop).display === 'none') {
+                    search_bar_desktop.style.display = 'flex';
+                } else {
+                    search_bar_desktop.style.display = 'none';
+                }
+
+                search_button.style.display = 'none';
+            }
+        });
+        const search_results = document.querySelector('.search-bar');
+        const search_input = document.querySelector('.search-field-desktop>input');
+
+
+        window.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
+                const search_toggle = document.querySelector('#search-toggle');
+                const nav_icon = document.querySelector('.nav-icon');
+                const text = document.querySelector('.search-field-desktop>input');
+                console.log(e.target);
+                if (e.target != search_toggle && e.target != nav_icon && e.target != text) {
+                    if (getComputedStyle(search_bar_desktop).display === 'flex') {
+                        search_bar_desktop.style.display = 'none';
+
+                        search_button.style.display = 'block';
+                        search_results.style.transform = 'scale(1,0)';
+                    }
+                }
+            }
+        });
+
+
+        const search_field_results = document.querySelector('.search-field');
+
+        search_input.addEventListener('input', function () {
+            if (window.innerWidth > 1024) {
+                if (this.value.length > 0) {
+                    search_results.style.display = 'block';
+                    search_results.style.transform = 'scale(1,1)';
+                    search_field_results.style.display = 'none';
+                    console.log(this.value);
+                    document.querySelector('#search-results').classList.remove('search-results-noshow');
+                    document.querySelector('#search-results').classList.add('search-results-show');
+                } else {
+                    search_results.style.display = 'none';
+                    search_results.transform = 'scale(1,0)';
+                    document.querySelector('#search-results').classList.remove('search-results-show');
+                    document.querySelector('#search-results').classList.add('search-results-noshow');
+                }
+            }
+        });
+
+
+        const login_button = document.querySelector('#logowanie');
+        const login = document.querySelector('.login');
+
+
+        login_button.addEventListener('click', function () {
+            if (window.innerWidth > 1024) {
+                if (getComputedStyle(login).display === 'none') {
+                    login.style.display = 'flex';
+                } else {
+                    login.style.display = 'none';
+                }
+            }
+        });
+
+
+
+        const herbatka = document.querySelector('#herbatka');
+        const options_herbata = document.querySelector('#options_herbata');
+
+        herbatka.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
+                console.log(options_herbata);
+                if (getComputedStyle(options_herbata).display === 'none') {
+                    options_herbata.style.display = 'flex';
+                    const buttonRect = herbatka.getBoundingClientRect();
+                    const options_width = options_herbata.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_herbata.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_herbata.style.display = 'none';
+                }
+            }
+        });
+
+
+        const yerba = document.querySelector('#yerba');
+        const options_yerba = document.querySelector('#options_yerba');
+        yerba.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
+                console.log(options_yerba);
+                if (getComputedStyle(options_yerba).display === 'none') {
+                    options_yerba.style.display = 'flex';
+                    const buttonRect = yerba.getBoundingClientRect();
+                    const options_width = options_yerba.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_yerba.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_yerba.style.display = 'none';
+                }
+            }
+        });
+
+
+        const kawa = document.querySelector('#kawa');
+        const options_kawa = document.querySelector('#options_kawa');
+
+
+        kawa.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
+                console.log(options_kawa);
+                if (getComputedStyle(options_kawa).display === 'none') {
+                    options_kawa.style.display = 'flex';
+                    const buttonRect = kawa.getBoundingClientRect();
+                    const options_width = options_kawa.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_kawa.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_kawa.style.display = 'none';
+                }
+            }
+        });
+
+
+
+        const akcesoria = document.querySelector('#akcesoria');
+        const options_akcesoria = document.querySelector('#options_akcesoria');
+
+
+        akcesoria.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
+                console.log(options_akcesoria);
+                if (getComputedStyle(options_akcesoria).display === 'none') {
+                    options_akcesoria.style.display = 'flex';
+                    const buttonRect = akcesoria.getBoundingClientRect();
+                    const options_width = options_akcesoria.getBoundingClientRect().width;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
+                    options_akcesoria.style.left = `${buttonCenterX}px`;
+                } else {
+                    options_akcesoria.style.display = 'none';
+                }
+            }
+        });
+
+
+        // const back = document.querySelector('#close-nav');
+        // back.addEventListener('click', function () {
+        //     ul.innerHTML = '';
+        //     Object.keys(categories).forEach(category => {
+        //         const li = document.createElement('li');
+        //         li.classList.add('nav-option-more');
+        //         li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+        //         li.addEventListener('click', nav_function);
+        //         ul.appendChild(li);
+        //     });
+        //     extra_categories.forEach(category => {
+        //         const li = document.createElement('li');
+        //         li.innerHTML = `<a href="#">${category}</a>`;
+        //         ul.appendChild(li);
+        //     });
+        // });
+
+        const carousel_array = [{ img: "img/dobre-nawyki.png", txt: "Dobre nawyki w parzeniu herbaty" },
+        { img: "img/carousel2.png", txt: "Inspiracje na świąteczne prezenty" },
+        { img: "img/carousel3.png", txt: "Tajna receptura na odchudzanie" },
+        { img: "img/carousel4.png", txt: "Nowość! Kawa na zimno" },]
+
+        var index = 0;
+
+        const carousel = document.querySelector('.carousel');
+        const carousel_left_arrow = document.querySelector('#carousel-left-arrow');
+        const carousel_right_arrow = document.querySelector('#carousel-right-arrow');
+        const carousel_text = document.querySelector('.carousel h2');
+        carousel_right_arrow.addEventListener('click', function () {
+            if (index == carousel_array.length - 1) {
+                index = 0;
+            } else {
+                index = (index + 1);
+            }
+            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
+            carousel_text.textContent = carousel_array[index].txt;
+            console.log(index);
+        });
+
+        carousel_left_arrow.addEventListener('click', function () {
+            if (index == 0) {
+                index = carousel_array.length - 1;
+            } else {
+                index = (index - 1);
+            }
+            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
+            carousel_text.textContent = carousel_array[index].txt;
+            console.log(index);
+        });
+
+
     </script>
 </body>
 
