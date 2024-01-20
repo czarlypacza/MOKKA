@@ -188,38 +188,51 @@
     </header>
 
     <main class="body">
+
         <div class="carousel">
             <div class="background"></div>
             <img src="img/left_arrow.svg" alt="" id="carousel-left-arrow">
+            <div class="h2-container">
+                <h2>Dobre nawyki w parzeniu herbaty</h2>
+            </div>
             <img src="img/right_arrow.svg" alt="" id="carousel-right-arrow">
-            <h2>Dobre nawyki w parzeniu herbaty</h2>
         </div>
 
         <div class="popular-subjects">
             <h2>Popularne tematy</h2>
-            <div class="subject"><img src="img/Konto.svg" alt="">
-                <div class="subject-text">
-                    <h3>Prezent dla dziadków</h3>
-                    <p>Szukam prezentu który będzie klasycznny i w klimacie świątecznym mile widziane były by her...</p>
+            <div class="wrapper">
+                <div class="subject"><img src="img/Konto.svg" alt="">
+                    <div class="subject-text">
+                        <h3>Prezent dla dziadków</h3>
+                        <p>Szukam prezentu który będzie klasycznny i w klimacie świątecznym mile widziane były by her...</p>
+                    </div>
                 </div>
-            </div>
-            <div class="subject"><img src="img/Konto.svg" alt="">
-                <div class="subject-text">
-                    <h3>Gorzki smak Yerba Mate</h3>
-                    <p>Witam, przychodze do państwa z następującym problemem. Mianowicie moja yerba smakuje go...</p>
+                <div class="subject"><img src="img/Konto.svg" alt="">
+                    <div class="subject-text">
+                        <h3>Gorzki smak Yerba Mate</h3>
+                        <p>Witam, przychodze do państwa z następującym problemem. Mianowicie moja yerba smakuje go...</p>
+                    </div>
                 </div>
-            </div>
-            <div class="subject"><img src="img/Konto.svg" alt="">
-                <div class="subject-text">
-                    <h3>Jaką herbatę można parzyć wielokrotnie?</h3>
-                    <p>Jak w tytule, jakie odmiany herbat można zaparzać wielokrotnie, a które wręcz przeciwnie...</p>
+                <div class="subject"><img src="img/Konto.svg" alt="">
+                    <div class="subject-text">
+                        <h3>Jaką herbatę można parzyć wielokrotnie?</h3>
+                        <p>Jak w tytule, jakie odmiany herbat można zaparzać wielokrotnie, a które wręcz przeciwnie...</p>
+                    </div>
+                </div>
+                <div class="subject"><img src="img/Konto.svg" alt="">
+                    <div class="subject-text">
+                        <h3>Tykwa czy Matero?</h3>
+                        <p>Jaka jest poprawna nazwa na naczynie do yerba mate?</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="best-weekly">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js"></script>
+
+        <div class="best-weekly ">
             <h2>Produkty tygodnia</h2>
-            <div class="best-weekly-viewport">
+            <div class="best-weekly-viewport dragscroll">
                 <div class="products-carousel">
                     <div class="product">
                         <img src="img/Herbatka.png" alt="herbata">
@@ -589,7 +602,7 @@
 
         const carousel_array = [{ img: "img/dobre-nawyki.png", txt: "Dobre nawyki w parzeniu herbaty" },
         { img: "img/carousel2.png", txt: "Inspiracje na świąteczne prezenty" },
-        { img: "img/carousel3.png", txt: "Tajna recaptura na odchudzanie" },
+        { img: "img/carousel3.png", txt: "Tajna receptura na odchudzanie" },
         { img: "img/carousel4.png", txt: "Nowość! Kawa na zimno" },]
 
         var index = 0;

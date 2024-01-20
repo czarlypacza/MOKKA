@@ -170,6 +170,9 @@ a{
 }
 
 @media (max-width: 768px){
+    
+
+
     .item {
         width: 50%; /* Na smartfonach dwa zdjęcia */
     }
@@ -189,6 +192,11 @@ a{
 }
 
 @media (min-width: 1366px){
+    .body{
+        margin-top: 5rem;
+
+    }
+
     .gallery-container{
         overflow: hidden;
     }
