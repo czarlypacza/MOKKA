@@ -366,64 +366,64 @@
         const ul = document.querySelector('nav ul');
 
         function nav_function() {
-            const category = this.textContent.trim();
-            console.log(category);
+            if (window.innerWidth < 1024) {
+                const category = this.textContent.trim();
+                console.log(category);
 
-            const subcategories = categories[category];
-            const ul = this.parentElement;
-            ul.innerHTML = '';
-            subcategories.forEach(subcategory => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
-                ul.appendChild(li);
-            });
-            setTimeout(() => {
-                nav.style.transform = 'translateX(0)';
-            }, 100);
-            setTimeout(() => {
-                nav.style.transform = 'translateX(-100%)';
-            }, 50);
-            setTimeout(() => {
-                nav.style.transform = '';
-            }, 200);
-
-            document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
-            document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
-            document.querySelector('#close-nav').addEventListener('click', function () {
-                nav.style.transform = '';
+                const subcategories = categories[category];
+                const ul = this.parentElement;
                 ul.innerHTML = '';
-                Object.keys(categories).forEach(category => {
+                subcategories.forEach(subcategory => {
                     const li = document.createElement('li');
-                    li.classList.add('nav-option-more');
-                    li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
-                    li.addEventListener('click', nav_function);
+                    li.innerHTML = `<a href="#">${subcategory}</a><img src="img/Vector.svg" alt="arrow">`;
                     ul.appendChild(li);
                 });
-                extra_categories.forEach(category => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="#">${category}</a>`;
-                    ul.appendChild(li);
-                });
-                document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(0)';
+                }, 100);
+                setTimeout(() => {
+                    nav.style.transform = 'translateX(-100%)';
+                }, 50);
+                setTimeout(() => {
+                    nav.style.transform = '';
+                }, 200);
+
+                document.querySelector('.nav-title').removeChild(document.querySelector('.nav-title img'));
+                document.querySelector('.nav-title').innerHTML = `<p>${category}</p><img src="img/Arrow-back.svg" id="close-nav" class="close-nav" alt="close">`;
                 document.querySelector('#close-nav').addEventListener('click', function () {
-                    document.querySelector('.nav-toggle').click();
+                    nav.style.transform = '';
+                    ul.innerHTML = '';
+                    Object.keys(categories).forEach(category => {
+                        const li = document.createElement('li');
+                        li.classList.add('nav-option-more');
+                        li.innerHTML = `<a href="#">${category}</a><img src="img/Vector.svg" alt="arrow">`;
+                        li.addEventListener('click', nav_function);
+                        ul.appendChild(li);
+                    });
+                    extra_categories.forEach(category => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="#">${category}</a>`;
+                        ul.appendChild(li);
+                    });
+                    document.querySelector('.nav-title').innerHTML = `<p>Kategorie</p><img src="img/Close_square.svg" id="close-nav" class="close-nav" alt="close">`;
+                    document.querySelector('#close-nav').addEventListener('click', function () {
+                        document.querySelector('.nav-toggle').click();
+                    });
                 });
-            });
+            }
         }
 
         navItems.forEach(item => {
-            if (window.innerWidth < 1024)
-                item.addEventListener('click', nav_function);
+            item.addEventListener('click', nav_function);
         });
-
-
 
 
         const search_desktop = document.querySelector('.search-toggle-label');
         const search_bar_desktop = document.querySelector('.search-field-desktop');
         const search_button = document.querySelector('#search-button');
-        if (window.innerWidth > 1024) {
-            search_desktop.addEventListener('click', function () {
+
+        search_desktop.addEventListener('click', function () {
+            if (window.innerWidth > 1024) {
                 if (getComputedStyle(search_bar_desktop).display === 'none') {
                     search_bar_desktop.style.display = 'flex';
                 } else {
@@ -431,23 +431,25 @@
                 }
 
                 search_button.style.display = 'none';
-            });
-        }
+            }
+        });
         const search_results = document.querySelector('.search-bar');
         const search_input = document.querySelector('.search-field-desktop>input');
 
 
         window.addEventListener('click', function (e) {
-            const search_toggle = document.querySelector('#search-toggle');
-            const nav_icon = document.querySelector('.nav-icon');
-            const text = document.querySelector('.search-field-desktop>input');
-            console.log(e.target);
-            if (e.target != search_toggle && e.target != nav_icon && e.target != text) {
-                if (getComputedStyle(search_bar_desktop).display === 'flex') {
-                    search_bar_desktop.style.display = 'none';
+            if (window.innerWidth > 1024) {
+                const search_toggle = document.querySelector('#search-toggle');
+                const nav_icon = document.querySelector('.nav-icon');
+                const text = document.querySelector('.search-field-desktop>input');
+                console.log(e.target);
+                if (e.target != search_toggle && e.target != nav_icon && e.target != text) {
+                    if (getComputedStyle(search_bar_desktop).display === 'flex') {
+                        search_bar_desktop.style.display = 'none';
 
-                    search_button.style.display = 'block';
-                    search_results.style.transform = 'scale(1,0)';
+                        search_button.style.display = 'block';
+                        search_results.style.transform = 'scale(1,0)';
+                    }
                 }
             }
         });
@@ -456,40 +458,45 @@
         const search_field_results = document.querySelector('.search-field');
 
         search_input.addEventListener('input', function () {
-            if (this.value.length > 0) {
-                search_results.style.display = 'block';
-                search_results.style.transform = 'scale(1,1)';
-                search_field_results.style.display = 'none';
-                console.log(this.value);
-                document.querySelector('#search-results').classList.remove('search-results-noshow');
-                document.querySelector('#search-results').classList.add('search-results-show');
-            } else {
-                search_results.style.display = 'none';
-                search_results.transform = 'scale(1,0)';
-                document.querySelector('#search-results').classList.remove('search-results-show');
-                document.querySelector('#search-results').classList.add('search-results-noshow');
+            if (window.innerWidth > 1024) {
+                if (this.value.length > 0) {
+                    search_results.style.display = 'block';
+                    search_results.style.transform = 'scale(1,1)';
+                    search_field_results.style.display = 'none';
+                    console.log(this.value);
+                    document.querySelector('#search-results').classList.remove('search-results-noshow');
+                    document.querySelector('#search-results').classList.add('search-results-show');
+                } else {
+                    search_results.style.display = 'none';
+                    search_results.transform = 'scale(1,0)';
+                    document.querySelector('#search-results').classList.remove('search-results-show');
+                    document.querySelector('#search-results').classList.add('search-results-noshow');
+                }
             }
-        }
-        );
+        });
+
 
         const login_button = document.querySelector('#logowanie');
         const login = document.querySelector('.login');
 
-        if (window.innerWidth > 1024) {
-            login_button.addEventListener('click', function () {
+
+        login_button.addEventListener('click', function () {
+            if (window.innerWidth > 1024) {
                 if (getComputedStyle(login).display === 'none') {
                     login.style.display = 'flex';
                 } else {
                     login.style.display = 'none';
                 }
-            });
-        }
+            }
+        });
+
 
 
         const herbatka = document.querySelector('#herbatka');
         const options_herbata = document.querySelector('#options_herbata');
-        if (window.innerWidth > 1024) {
-            herbatka.addEventListener('click', function (e) {
+
+        herbatka.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
                 console.log(options_herbata);
                 if (getComputedStyle(options_herbata).display === 'none') {
                     options_herbata.style.display = 'flex';
@@ -500,13 +507,14 @@
                 } else {
                     options_herbata.style.display = 'none';
                 }
-            });
-        }
+            }
+        });
+
 
         const yerba = document.querySelector('#yerba');
         const options_yerba = document.querySelector('#options_yerba');
-        if (window.innerWidth > 1024) {
-            yerba.addEventListener('click', function (e) {
+        yerba.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
                 console.log(options_yerba);
                 if (getComputedStyle(options_yerba).display === 'none') {
                     options_yerba.style.display = 'flex';
@@ -517,33 +525,37 @@
                 } else {
                     options_yerba.style.display = 'none';
                 }
-            });
-        }
+            }
+        });
+
 
         const kawa = document.querySelector('#kawa');
         const options_kawa = document.querySelector('#options_kawa');
 
-        if (window.innerWidth > 1024) {
-            kawa.addEventListener('click', function (e) {
+
+        kawa.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
                 console.log(options_kawa);
                 if (getComputedStyle(options_kawa).display === 'none') {
                     options_kawa.style.display = 'flex';
                     const buttonRect = kawa.getBoundingClientRect();
                     const options_width = options_kawa.getBoundingClientRect().width;
-                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2)-options_width/2;
+                    const buttonCenterX = (buttonRect.left + buttonRect.width / 2) - options_width / 2;
                     options_kawa.style.left = `${buttonCenterX}px`;
                 } else {
                     options_kawa.style.display = 'none';
                 }
-            });
-        }
+            }
+        });
+
 
 
         const akcesoria = document.querySelector('#akcesoria');
         const options_akcesoria = document.querySelector('#options_akcesoria');
 
-        if (window.innerWidth > 1024) {
-            akcesoria.addEventListener('click', function (e) {
+
+        akcesoria.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) {
                 console.log(options_akcesoria);
                 if (getComputedStyle(options_akcesoria).display === 'none') {
                     options_akcesoria.style.display = 'flex';
@@ -554,8 +566,9 @@
                 } else {
                     options_akcesoria.style.display = 'none';
                 }
-            });
-        }
+            }
+        });
+
 
         // const back = document.querySelector('#close-nav');
         // back.addEventListener('click', function () {

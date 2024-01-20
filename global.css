@@ -590,8 +590,13 @@ nav li:focus {
         transform: rotate(90deg);
     }
 
+
+    
+
+
     .search-toggle-label {
-        height: 3rem;
+        height: 5rem;
+        font-size: 1rem;
     }
 
     .search-field-desktop {
@@ -607,6 +612,13 @@ nav li:focus {
         background: rgba(114, 166, 106, 0.90);
         gap: 0.25rem;
     }
+
+    /* to gowno nie chce dzialać */
+    .search-toggle:checked ~ .search-field-desktop {
+        transform: scale(1, 1);
+    }
+
+    /*powinno dzialac jak na androidzie ale nie chce dac wgl styli tych do elementu */
 
     .search-field-desktop>input {
         width: 100%;
