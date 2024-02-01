@@ -4,6 +4,10 @@
         display: none;
     }
 
+    #modalAdres {
+        display: none;
+    }
+
     #bodyMobile {
         position: relative;
         display: flex;
@@ -22,14 +26,14 @@
         width: 100%;
     }
 
-    .row {
+    #bodyMobile > .row {
         display: flex;
         justify-content: center;
 
         width: 90%;
     }
 
-    .row > div {
+    #bodyMobile > .row > div {
         width: 90%;
     }
 
@@ -67,7 +71,7 @@
         height: 75%;
     }
 
-    .column {
+    #bodyMobile > .column {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -161,15 +165,23 @@
         width: 100%;
     }
     
-    .row {
+    #bodyDesktop > .row {
         display: flex;
         justify-content: center;
     
         width: 90%;
     }
     
-    .row > div {
+    #bodyDesktop > .row > div {
         width: 90%;
+    }
+
+    #bodyDesktop > .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
     }
     
     #addresses {
@@ -205,13 +217,11 @@
     .addressIcons > img {
         height: 75%;
     }
-    
-    .column {
+
+    #avatar {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        width: 50%;
+        align-items: end;
     }
     
     .inputs {
@@ -244,7 +254,7 @@
         padding-left: 0.5rem;
     }
     
-    .inputs > button {  
+    .butt {  
         font-family: var(--ff-primary);
         border-radius: 50rem;
         border: none;
@@ -253,4 +263,92 @@
         width: 7rem;
     }
 
+    #otherSections > .column > .butt {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: var(--color-text);
+        height: 3rem;
+        width: 20rem;
+    }
+
+    #otherSections > .column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .butt:hover {  
+        border: solid 0.1rem black;
+    }
+
+    .butt:active {  
+        background-color: rgba(114, 218, 96, 0.86);
+    }
+
+    #modalAdres {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+        font-family: var(--ff-primary);
+        color: var(--color-text);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #modalInfo {
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+        height: 35rem;
+        border: 0.5rem solid rgba(140,192,132,0.64);
+        border-radius: 1rem;
+
+        background-color: color-mix(in srgb, white, rgba(140, 192, 132, 1));
+    }
+
+    #modalInfo > .row {
+        display: flex;
+        width: 100%;
+        height: 12%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        gap: 1rem;
+    }
+
+    #closeX {
+        position: absolute;
+        transform: translateX(17rem);
+    }
+
+    #closeX:hover {
+        cursor: pointer;
+    }
+
+    #modalInfo > .row > p {
+        font-weight: bold;
+        text-align: right;
+        min-width: 10rem;
+    }
+    
+    #modalInfo > .row > input,select {
+        font-family: var(--ff-primary);
+        border-radius: 1rem; 
+        background-color: rgba(140,192,132,0.86);
+        border-style: solid;
+        border-color:rgba(118, 161, 112, 0.9);
+        font-size: 1rem;
+        height: 3rem;
+        width: 50%;
+        padding-left: 1rem;
+    }
+
+    #modalInfo > .row > button {
+        border-radius: 1rem;
+        width: 8rem;
+    }
 }

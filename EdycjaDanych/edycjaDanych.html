@@ -16,6 +16,62 @@
 
 <body>
 
+    <div id="modalAdres">
+        <div id="modalInfo">
+            <div class="row">
+                <h2>Dodaj adres dostawy</h2>
+                <img id="closeX" src="img/x.svg"/>
+            </div>
+
+            <div class="row">
+                <p>Kod pocztowy:</p>
+                <input type="text" placeholder="00-000">
+            </div>
+
+            <div class="row">
+                <p>Ulica:</p>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <p>Numer budynku:</p>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <p>Numer mieszkania:<br>(opcjonalnie)</p>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <p>Miejscowość:</p>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <p>Państwo:</p>
+                <select name="country">
+                    <option value="Polska">Polska</option>
+                    <option value="Niemcy">Niemcy</option>
+                    <option value="Francja">Francja</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <button class="butt">Dodaj adres</button>
+            </div>
+
+            <script>
+                const close_x = document.getElementById("closeX");
+                const modalAdres = document.getElementById("modalAdres");
+
+                close_x.addEventListener('click', () => {
+                    modalAdres.style.display = "none";
+                });
+            </script>
+        </div>
+    </div>
+
     <header class="nav-container">
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <input type="checkbox" id="search-toggle" class="search-toggle">
@@ -187,12 +243,25 @@
 
     </header>
     <main id="bodyDesktop">
-        
+        <div id="otherSections" class="row">
+            <div class="column">
+                <button class="butt">Zamówienia</button>
+            </div>
+
+            <div class="column">
+                <button class="butt">Posty</button>
+            </div>
+
+            <div class="column">
+                <button class="butt">Lista życzeń</button>
+            </div>
+        </div>
+
         <div class="row">
             <div class="column">
                 <div id="avatar">
                     <img src="img/Konto_zalogowane.svg" style="height: 15rem;">
-                    <img src="img/Edit_avatar.svg">
+                    <a href="#"><img src="img/Edit_avatar.svg"></a>
                 </div>
             </div>
 
@@ -204,7 +273,7 @@
                     </div>
                     <input type="text" placeholder="Hasło">
                     <input type="text" placeholder="Powtórz hasło">
-                    <button>Zmień</button>
+                    <button class="butt">Zmień</button>
                 </div>
 
             </div>
@@ -218,7 +287,7 @@
                         <hr>
                     </div>
                     <input type="text" placeholder="Login">
-                    <button>Zmień</button>
+                    <button class="butt">Zmień</button>
                 </div>
             </div>
 
@@ -229,7 +298,7 @@
                         <hr>
                     </div>
                     <input type="text" placeholder="Email">
-                    <button>Zmień</button>
+                    <button class="butt">Zmień</button>
                 </div>
             </div>
         </div>
@@ -249,8 +318,8 @@
                     </div>
 
                     <div class="addressIcons">
-                        <img src="img/Edit_address.svg">
-                        <img src="img/Remove_address.svg">
+                        <a href="#"><img src="img/Edit_address.svg"></a>
+                        <a href="#"><img src="img/Remove_address.svg"></a>
                     </div>
                 </div>
 
@@ -262,36 +331,42 @@
                     </div>
 
                     <div class="addressIcons">
-                        <img src="img/Edit_address.svg">
-                        <img src="img/Remove_address.svg">
+                        <a href="#"><img src="img/Edit_address.svg"></a>
+                        <a href="#"><img src="img/Remove_address.svg"></a>
                     </div>
                 </div>
+
+                <button class="butt" id="add_addr">Dodaj</button>
             </div>
         </div>
 
     </main>
 
     <main id="bodyMobile">
-        <div id="title">
-            Edycja danych konta
+        <div id="avatar" style="padding-top: 1rem">
+            <img src="img/Konto_zalogowane.svg" style="height: 15rem;">
+            <a href="#"><img src="img/Edit_avatar.svg"></a>
         </div>
 
         <div class="editOption">
-            Zarządzaj adresami
+            Moje zakupy
         </div>
 
         <div class="editOption">
-            Zmień hasło
+            Moje posty
         </div>
 
         <div class="editOption">
-            Zmień email
+            Zmień swoje dane
         </div>
 
         <div class="editOption">
-            Zmień login
+            Lista życzeń
         </div>
 
+        <div class="editOption">
+            Zapisane
+        </div>
     </main>
 
     <div id="footer">
@@ -324,6 +399,12 @@
     </div>
 
     <script>
+        const add_address_btn = document.getElementById("add_addr");
+
+        add_address_btn.addEventListener('click', () => {
+            modalAdres.style.display = "flex";
+        });
+
         document.querySelector('#close-nav').addEventListener('click', function () {
             document.querySelector('.nav-toggle').click();
         });
