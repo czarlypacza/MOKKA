@@ -1,3 +1,7 @@
+
+
+
+
 document.querySelector('#close-nav').addEventListener('click', function () {
     document.querySelector('.nav-toggle').click();
 });

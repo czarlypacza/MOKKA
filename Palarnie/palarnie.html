@@ -52,8 +52,8 @@
                 </button>
                 <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Koszyk.svg" alt="koszyk" class="nav-icon">
                 </button>
-                <button class="button" onclick="myFunction()"> <img src="../imgGlobal/Konto.svg" alt="konto" class="nav-icon"
-                        id="logowanie">
+                <button class="button" onclick="myFunction()"> 
+                    <img src="../imgGlobal/Konto.svg" alt="konto" class="nav-icon" id="logowanie">
                 </button>
                 <div class="login">
                     <h2>Logowanie</h2>
@@ -706,28 +706,69 @@
         const carousel = document.querySelector('.carousel');
         const carousel_left_arrow = document.querySelector('#carousel-left-arrow');
         const carousel_right_arrow = document.querySelector('#carousel-right-arrow');
-        const carousel_text = document.querySelector('.carousel h2');
-        carousel_right_arrow.addEventListener('click', function () {
-            if (index == carousel_array.length - 1) {
-                index = 0;
-            } else {
-                index = (index + 1);
-            }
-            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
-            carousel_text.textContent = carousel_array[index].txt;
-            console.log(index);
-        });
 
-        carousel_left_arrow.addEventListener('click', function () {
-            if (index == 0) {
-                index = carousel_array.length - 1;
-            } else {
-                index = (index - 1);
-            }
-            carousel.style.backgroundImage = `url(${carousel_array[index].img})`;
-            carousel_text.textContent = carousel_array[index].txt;
-            console.log(index);
+
+
+        //kod do pokazania stanu zalogowanego na navie
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const loginButtons = document.querySelectorAll(".login-button");
+
+        loginButtons.forEach(function(button) {
+            button.addEventListener('click', function () {
+                // zmiana zdjęcia na zalogowane
+                const imgInsideButton = document.getElementById('logowanie');
+                imgInsideButton.setAttribute('src', '../imgGlobal/profil.png');
+                
+                // usuwanie elementów
+                const loginContainer = button.closest('.login'); // Find the parent container of the login button
+                const elementsToRemove = loginContainer.querySelectorAll("p, h2, button, input");
+                elementsToRemove.forEach(function(el) {
+                    el.remove();
+                });
+
+                // zmiana stylu loginContainera
+
+                loginContainer.style.paddingInline = '0'; // how to change it
+
+                // Dodawanie elementów zalogowanego 
+                const tabs = ['Moje zakupy', 'Moje posty', 'Zmień swoje dane', 'Lista życzeń', 'Zapisane', 'Wyloguj'];
+                const tabContainer = document.createElement('div');
+                tabContainer.classList.add('tabs-container');
+
+                tabs.forEach(function(tabText) {
+                    const tab = document.createElement('div');
+                    tab.textContent = tabText;
+                    tab.classList.add('tab');
+                    tab.style.backgroundColor = '#8CC084';
+                    tab.style.borderTop = '2px solid #7BB074'; 
+                    tab.style.borderBottom = '2px solid #7BB074';
+                    tab.style.color = '#463F3A';
+                    tab.style.fontSize = '24px';
+                    tab.style.padding = '5px';
+                    tab.style.cursor = 'pointer';
+
+                    tabContainer.appendChild(tab);
+                });
+
+                loginContainer.appendChild(tabContainer);
+
+                // dodawanie przestrzeni
+                
+                const spacerAbove = document.createElement('div');
+                spacerAbove.style.height = '20px';
+                tabContainer.insertBefore(spacerAbove, tabContainer.firstChild);
+
+                const spacerBelow = document.createElement('div');
+                spacerBelow.style.height = '10px';
+                tabContainer.appendChild(spacerBelow);
+
+                loginContainer.appendChild(tabContainer);
+
+            });
         });
+    });
+
 
 
     </script>

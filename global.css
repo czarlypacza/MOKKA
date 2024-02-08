@@ -15,6 +15,20 @@
     padding: 0px;
     box-sizing: border-box;
 }
+.tabs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Arrange tabs in a column */
+    align-items: center; /* Center-align tabs horizontally */
+}
+
+.tab {
+    width: 100%; /* Make tabs full width */
+    font-weight: bold; /* Make font bolder */
+    font-size: 26px; /* Adjust font size */
+    margin-bottom: 2px; /* Add margin between tabs */
+    text-align: center; /* Center-align text within each tab */
+}
 
 body {
     display: flex;
